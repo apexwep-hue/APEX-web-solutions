@@ -17,7 +17,8 @@ body:not([data-page=home]) #gl{opacity:.55}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--ac);outline-offset:3px}
 .glass{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1100px,94vw);z-index:5;display:flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px}
+
+header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1100px,94vw);z-index:5;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;border-radius:999px}
 .brand{display:flex;align-items:center;gap:9px;font:700 17px "Space Grotesk",sans-serif;white-space:nowrap;direction:ltr}
 .brand svg{stroke:var(--ac)}.brand svg path:last-child{fill:var(--ac);stroke:none}
 
@@ -25,15 +26,15 @@ nav{display:flex;gap:2px;margin-inline:auto;overflow-x:auto;scrollbar-width:none
 nav a{padding:6px 12px;border-radius:999px;color:var(--mut);font-size:14px;white-space:nowrap;transition:.2s}
 nav a:hover,nav a.on{color:var(--tx);background:var(--glass);box-shadow:inset 0 0 0 1px var(--line)}
 
-/* Mobile Menu Toggle Button */
-#menuBtn{display:none;font-size:18px;padding:6px 12px;letter-spacing:2px}
+.header-actions{display:flex;align-items:center;gap:6px}
+#menuBtn{display:none;font-size:16px;padding:6px 10px;letter-spacing:1px}
 
 .btn{display:inline-block;border:1px solid var(--line);background:var(--glass);color:var(--tx);padding:10px 22px;border-radius:12px;font:600 15px/1.4 inherit;font-family:inherit;cursor:pointer;transition:.2s;text-align:center}
 .btn:hover{border-color:var(--ac)}
 .btn.pri{background:var(--ac);color:var(--bg);border-color:var(--ac)}
 .btn.pri:hover{opacity:.85}
-.btn.sm{padding:7px 14px;font-size:14px}
-select.btn{appearance:none;padding-inline:12px}select option{background:var(--bg);color:var(--tx)}
+.btn.sm{padding:6px 10px;font-size:13px}
+select.btn{appearance:none;padding-inline:8px;cursor:pointer}select option{background:var(--bg);color:var(--tx)}
 
 .page{position:fixed;inset:0;z-index:1;padding:96px 6vw 36px;overflow-y:auto;display:flex;opacity:0;visibility:hidden;transform:scale(.985);transition:opacity .55s,transform .55s,visibility 0s .55s}
 .page.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}
@@ -99,12 +100,14 @@ input,textarea,select.f{width:100%;padding:11px 14px;border-radius:12px;border:1
 <canvas id="gl" aria-hidden="true"></canvas>
 
 <header class="glass">
-  <a class="brand" href="#home"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke-width="2" stroke-linejoin="round"><path d="M13 2 24 23H2L13 2Z"/><path d="M13 11l4.5 9h-9L13 11Z"/></svg>Apex Web Solutions</a>
-  <button class="btn sm" id="menuBtn" type="button" aria-label="Menu">⋮</button>
+  <a class="brand" href="#home"><svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke-width="2" stroke-linejoin="round"><path d="M13 2 24 23H2L13 2Z"/><path d="M13 11l4.5 9h-9L13 11Z"/></svg>Apex</a>
   <nav id="nav"></nav>
-  <button class="btn sm" id="thm" type="button" aria-label="Theme"></button>
-  <select class="btn sm" id="lang" aria-label="Language"><option value="0">EN</option><option value="1">AR</option><option value="2">DE</option><option value="3">TR</option></select>
-  <a class="btn pri sm" id="waTop" target="_blank" rel="noopener" href="#">WhatsApp</a>
+  <div class="header-actions">
+    <button class="btn sm" id="menuBtn" type="button" aria-label="Menu">⋮</button>
+    <button class="btn sm" id="thm" type="button" aria-label="Theme"></button>
+    <select class="btn sm" id="lang" aria-label="Language"><option value="0">EN</option><option value="1">AR</option><option value="2">DE</option><option value="3">TR</option></select>
+    <a class="btn pri sm" id="waTop" target="_blank" rel="noopener" href="#">WhatsApp</a>
+  </div>
 </header>
 
 <main>
@@ -220,7 +223,7 @@ tld:['Domain extension','امتداد الدومين','Domain-Endung','Alan adı
 host:['Cloud hosting','الاستضافة السحابية','Cloud-Hosting','Bulut hosting'],h_yes:['Yes, I need cloud hosting','نعم، أحتاج استضافة سحابية','Ja, ich brauche Cloud-Hosting','Evet, bulut hosting istiyorum'],
 h_no:['No, I have hosting','لا، لدي استضافة','Nein, ich habe Hosting','Hayır, hostingim var'],h_apex:['Managed by Apex','تديرها Apex لي','Verwaltet von Apex','Apex yönetsin'],
 f_name:['Full name','الاسم الكامل','Vollständiger Name','Ad soyad'],f_phone:['Phone / WhatsApp','الهاتف / واتساب','Telefon / WhatsApp','Telefon / WhatsApp'],f_mail:['Email','البريد الإلكتروني','E-Mail','E-posta'],
-f_notes:['Project requirements and notes','متطلبات المشروع وملاحظات','Projektanforderungen und Notizen','Proje gereksinimleri و notlar'],
+f_notes:['Project requirements and notes','متطلبات المشروع وملاحظات','Projektanforderungen und Notizen','Proje gereksinimleri ve notlar'],
 next:['Next','التالي','Weiter','İleri'],back:['Back','رجوع','Zurück','Geri'],send_wa:['Send via WhatsApp','إرسال عبر واتساب','Per WhatsApp senden','WhatsApp ile gönder'],
 send_ig:['Send via Instagram','إرسال عبر إنستغرام','Per Instagram senden','Instagram ile gönder'],send_mail:['Send by email','إرسال عبر البريد','Per E-Mail senden','E-posta ile gönder'],
 e1:['Choose a service','اختر نوع الخدمة','Bitte wählen Sie eine Leistung','Bir hizmet seçin'],e2:['Choose a business type','اختر نوع النشاط','Bitte wählen Sie die Unternehmensart','İşletme türünü seçin'],
@@ -231,7 +234,7 @@ c_phone:['Phone / WhatsApp','الهاتف / واتساب','Telefon / WhatsApp','
 c_ig:['Instagram','إنستغرام','Instagram','Instagram'],c_scan:['Scan to open our Instagram page','امسح الرمز لفتح صفحتنا على إنستغرام','Scannen, um unsere Instagram-Seite zu öffnen','Instagram sayfamızı açmak için tarayın'],
 c_br:['Our branches','فروعنا','Unsere Standorte','Şubelerimiz'],br1:['Damascus, Syria','دمشق، سوريا','Damaskus, Syrien','Şam, Suriye'],br2:['Sheikh Zayed, Giza, Egypt','الشيخ زايد، الجيزة، مصر','Sheikh Zayed, Gizeh, Ägypten','Şeyh Zayed, Gize, Mısır'],
 c_map:['Open in Maps','افتح في الخرائط','In Karten öffnen','Haritada aç'],c_q:['Quick inquiry','استفسار سريع','Schnelle Anfrage','Hızlı soru'],
-q_name:['Name','الاسم','Name','Ad'],q_msg:['Write your request or question','اكتب طلبك أو سؤالك','Ihre Anfrage oder Frage','Talebinizi veya sorunuzu yazın']};
+q_name:['Name','الاسم','Name','Ad'],q_msg:['Write your request or question','اكتب طلبك أو سؤالك','Ihre Anfrage أو Frage','Talebinizi veya sorunuzu yazın']};
 const SV=['s_web','s_dash','s_app','s_host'],SO=['s_web','s_dash','s_app','s_pkg','s_host'],BZ=['b_rest','b_off','b_corp','ty_shop','b_pers','b_other'],HO=['h_yes','h_no','h_apex'];
 const PG=['home','about','services','work','order','contact'];
 const WORKS=[['Aurelia Architecture','ty_arch','https://apexwep-hue.github.io/AURELIA-/','b_corp'],['Aurelia Memorial','ty_inst','https://apexwep-hue.github.io/AURELIA-cemetery/','b_corp'],
@@ -263,23 +266,19 @@ function show(){let id=location.hash.slice(1);if(!PG.includes(id))id='home';
   $$('.page').forEach(p=>p.classList.toggle('on',p.id===id));$('#'+id).scrollTop=0;document.body.dataset.page=id;markNav()}
 addEventListener('hashchange',show);
 
-/* Menu Toggle for Mobile */
 $('#menuBtn').onclick = () => $('#nav').classList.toggle('open');
 $('#nav').onclick = e => { if(e.target.tagName === 'A') $('#nav').classList.remove('open'); };
 
-/* theme + language */
 function setTheme(t){document.documentElement.dataset.theme=t;$('#thm').textContent=t==='dark'?'☀':'☾';$('#thm').setAttribute('aria-label',t==='dark'?'Light mode':'Dark mode');
   try{localStorage.setItem('theme',t)}catch(e){}dispatchEvent(new Event('themechange'))}
 $('#thm').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
 $('#lang').onchange=e=>{L=+e.target.value;try{localStorage.setItem('lang',L)}catch(x){}applyLang();wstep(step)};
 let th='dark';try{th=localStorage.getItem('theme')||'dark'}catch(e){}
 
-/* links */
 ['waTop','waBtn'].forEach(i=>$('#'+i).href=wa('Hello Apex Web Solutions, I would like to ask about your services.'));
 $('#telBtn').href='tel:+'+PHONE;
 $('#explore').onclick=()=>{dispatchEvent(new Event('shatter'));setTimeout(()=>location.hash='work',750)};
 
-/* wizard */
 document.addEventListener('click',e=>{
   const o=e.target.closest('.opt');if(o){const g=o.parentElement.dataset.k;st[g]=o.dataset.v;$$('.opt',o.parentElement).forEach(b=>b.classList.toggle('sel',b===o));$('#err').textContent='';return}
   const b=e.target.closest('[data-order],[data-biz]');if(!b)return;
