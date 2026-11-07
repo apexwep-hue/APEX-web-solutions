@@ -18,23 +18,23 @@ a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--ac);outline-offset:3px}
 .glass{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 
-header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1100px,94vw);z-index:5;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;border-radius:999px}
-.brand{display:flex;align-items:center;gap:9px;font:700 17px "Space Grotesk",sans-serif;white-space:nowrap;direction:ltr}
-.brand svg{stroke:var(--ac)}.brand svg path:last-child{fill:var(--ac);stroke:none}
+header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1100px,96vw);z-index:5;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 12px;border-radius:999px}
+.brand{display:flex;align-items:center;gap:6px;font:700 15px "Space Grotesk",sans-serif;white-space:nowrap;direction:ltr;flex-shrink:1;min-width:0}
+.brand svg{stroke:var(--ac);flex-shrink:0}.brand svg path:last-child{fill:var(--ac);stroke:none}
 
 nav{display:flex;gap:2px;margin-inline:auto;overflow-x:auto;scrollbar-width:none}
 nav a{padding:6px 12px;border-radius:999px;color:var(--mut);font-size:14px;white-space:nowrap;transition:.2s}
 nav a:hover,nav a.on{color:var(--tx);background:var(--glass);box-shadow:inset 0 0 0 1px var(--line)}
 
-.header-actions{display:flex;align-items:center;gap:6px}
-#menuBtn{display:none;font-size:16px;padding:6px 10px;letter-spacing:1px}
+.header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+#menuBtn{display:none;font-size:15px;padding:5px 8px}
 
 .btn{display:inline-block;border:1px solid var(--line);background:var(--glass);color:var(--tx);padding:10px 22px;border-radius:12px;font:600 15px/1.4 inherit;font-family:inherit;cursor:pointer;transition:.2s;text-align:center}
 .btn:hover{border-color:var(--ac)}
 .btn.pri{background:var(--ac);color:var(--bg);border-color:var(--ac)}
 .btn.pri:hover{opacity:.85}
-.btn.sm{padding:6px 10px;font-size:13px}
-select.btn{appearance:none;padding-inline:8px;cursor:pointer}select option{background:var(--bg);color:var(--tx)}
+.btn.sm{padding:5px 8px;font-size:12px}
+select.btn{appearance:none;padding-inline:6px;cursor:pointer}select option{background:var(--bg);color:var(--tx)}
 
 .page{position:fixed;inset:0;z-index:1;padding:96px 6vw 36px;overflow-y:auto;display:flex;opacity:0;visibility:hidden;transform:scale(.985);transition:opacity .55s,transform .55s,visibility 0s .55s}
 .page.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}
@@ -75,6 +75,7 @@ input,textarea,select.f{width:100%;padding:11px 14px;border-radius:12px;border:1
   #waTop{display:none}
   .page{padding:84px 5vw 28px}
   #menuBtn{display:inline-block}
+  .brand{font-size:13px}
   nav{
     display:none;
     position:absolute;
@@ -100,7 +101,7 @@ input,textarea,select.f{width:100%;padding:11px 14px;border-radius:12px;border:1
 <canvas id="gl" aria-hidden="true"></canvas>
 
 <header class="glass">
-  <a class="brand" href="#home"><svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke-width="2" stroke-linejoin="round"><path d="M13 2 24 23H2L13 2Z"/><path d="M13 11l4.5 9h-9L13 11Z"/></svg>Apex</a>
+  <a class="brand" href="#home"><svg width="22" height="22" viewBox="0 0 26 26" fill="none" stroke-width="2" stroke-linejoin="round"><path d="M13 2 24 23H2L13 2Z"/><path d="M13 11l4.5 9h-9L13 11Z"/></svg>Apex Web Solutions</a>
   <nav id="nav"></nav>
   <div class="header-actions">
     <button class="btn sm" id="menuBtn" type="button" aria-label="Menu">⋮</button>
@@ -209,7 +210,7 @@ s_host:['Hosting & domain','الاستضافة والدومين','Hosting & Doma
 b_order:['Order this','اطلب هذه الخدمة','Anfragen','Talep et'],
 w_l:['Live projects you can open and try right now.','مشاريع منشورة يمكنك فتحها وتجربتها الآن.','Live-Projekte, die Sie sofort öffnen und testen können.','Hemen açıp deneyebileceğiniz yayındaki projeler.'],
 live:['Live demo','معاينة حية','Live-Demo','Canlı demo'],similar:['Order similar','اطلب خدمة مشابهة','Ähnliches anfragen','Benzerini iste'],
-ty_arch:['Architecture showcase site','موقع عرض معماري','Architektur-Präsentationsseite','Mimari tanıtım sitesi'],ty_inst:['Institutional services site','موقع خدمات مؤسسية','Institutionelle Service-Website','Kurumsal hizmet sitesi'],
+ty_arch:['Architecture showcase site','موقع عرض معماري','Architektur-Präsentationsseite','Mimari tanıtım sitesi'],ty_inst:['Institutional services site','موقع خدمات مؤسسية','Institutionelle Service-Website','Kurumsal خدمات مؤسسية'],
 ty_dash:['Full admin control panel','لوحة تحكم إدارية كاملة','Vollständiges Admin-Panel','Tam yönetim paneli'],ty_clinic:['Clinic and appointment portal','عيادة وحجز مواعيد','Klinik- und Terminportal','Klinik ve randevu portalı'],
 ty_shop:['Online store','متجر إلكتروني','Onlineshop','Online mağaza'],ty_food:['Restaurant and food ordering','مطعم وطلب طعام','Restaurant & Essensbestellung','Restoran ve yemek siparişi'],
 ty_land:['Tech product landing page','صفحة هبوط لمنتج تقني','Landingpage für ein Tech-Produkt','Teknoloji ürünü açılış sayfası'],ty_port:['Interactive portfolio','بورتفوليو تفاعلي','Interaktives Portfolio','Etkileşimli portfolyo'],
