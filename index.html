@@ -105,8 +105,8 @@ input,textarea,select.f{width:100%;padding:11px 14px;border-radius:12px;border:1
   <nav id="nav"></nav>
   <div class="header-actions">
     <button class="btn sm" id="menuBtn" type="button" aria-label="Menu">⋮</button>
-    <button class="btn sm" id="thm" type="button" aria-label="Theme"></button>
     <select class="btn sm" id="lang" aria-label="Language"><option value="0">EN</option><option value="1">AR</option><option value="2">DE</option><option value="3">TR</option></select>
+    <button class="btn sm" id="thm" type="button" aria-label="Theme"></button>
     <a class="btn pri sm" id="waTop" target="_blank" rel="noopener" href="#">WhatsApp</a>
   </div>
 </header>
@@ -210,7 +210,7 @@ s_host:['Hosting & domain','الاستضافة والدومين','Hosting & Doma
 b_order:['Order this','اطلب هذه الخدمة','Anfragen','Talep et'],
 w_l:['Live projects you can open and try right now.','مشاريع منشورة يمكنك فتحها وتجربتها الآن.','Live-Projekte, die Sie sofort öffnen und testen können.','Hemen açıp deneyebileceğiniz yayındaki projeler.'],
 live:['Live demo','معاينة حية','Live-Demo','Canlı demo'],similar:['Order similar','اطلب خدمة مشابهة','Ähnliches anfragen','Benzerini iste'],
-ty_arch:['Architecture showcase site','موقع عرض معماري','Architektur-Präsentationsseite','Mimari tanıtım sitesi'],ty_inst:['Institutional services site','موقع خدمات مؤسسية','Institutionelle Service-Website','Kurumsal خدمات مؤسسية'],
+ty_arch:['Architecture showcase site','موقع عرض معماري','Architektur-Präsentationsseite','Mimari tanıtım sitesi'],ty_inst:['Institutional services site','موقع خدمات مؤسسية','Institutionelle Service-Website','Kurumsal hizmet sitesi'],
 ty_dash:['Full admin control panel','لوحة تحكم إدارية كاملة','Vollständiges Admin-Panel','Tam yönetim paneli'],ty_clinic:['Clinic and appointment portal','عيادة وحجز مواعيد','Klinik- und Terminportal','Klinik ve randevu portalı'],
 ty_shop:['Online store','متجر إلكتروني','Onlineshop','Online mağaza'],ty_food:['Restaurant and food ordering','مطعم وطلب طعام','Restaurant & Essensbestellung','Restoran ve yemek siparişi'],
 ty_land:['Tech product landing page','صفحة هبوط لمنتج تقني','Landingpage für ein Tech-Produkt','Teknoloji ürünü açılış sayfası'],ty_port:['Interactive portfolio','بورتفوليو تفاعلي','Interaktives Portfolio','Etkileşimli portfolyo'],
@@ -235,7 +235,7 @@ c_phone:['Phone / WhatsApp','الهاتف / واتساب','Telefon / WhatsApp','
 c_ig:['Instagram','إنستغرام','Instagram','Instagram'],c_scan:['Scan to open our Instagram page','امسح الرمز لفتح صفحتنا على إنستغرام','Scannen, um unsere Instagram-Seite zu öffnen','Instagram sayfamızı açmak için tarayın'],
 c_br:['Our branches','فروعنا','Unsere Standorte','Şubelerimiz'],br1:['Damascus, Syria','دمشق، سوريا','Damaskus, Syrien','Şam, Suriye'],br2:['Sheikh Zayed, Giza, Egypt','الشيخ زايد، الجيزة، مصر','Sheikh Zayed, Gizeh, Ägypten','Şeyh Zayed, Gize, Mısır'],
 c_map:['Open in Maps','افتح في الخرائط','In Karten öffnen','Haritada aç'],c_q:['Quick inquiry','استفسار سريع','Schnelle Anfrage','Hızlı soru'],
-q_name:['Name','الاسم','Name','Ad'],q_msg:['Write your request or question','اكتب طلبك أو سؤالك','Ihre Anfrage أو Frage','Talebinizi veya sorunuzu yazın']};
+q_name:['Name','الاسم','Name','Ad'],q_msg:['Write your request or question','اكتب طلبك أو سؤالك','Ihre Anfrage oder Frage','Talebinizi veya sorunuzu yazın']};
 const SV=['s_web','s_dash','s_app','s_host'],SO=['s_web','s_dash','s_app','s_pkg','s_host'],BZ=['b_rest','b_off','b_corp','ty_shop','b_pers','b_other'],HO=['h_yes','h_no','h_apex'];
 const PG=['home','about','services','work','order','contact'];
 const WORKS=[['Aurelia Architecture','ty_arch','https://apexwep-hue.github.io/AURELIA-/','b_corp'],['Aurelia Memorial','ty_inst','https://apexwep-hue.github.io/AURELIA-cemetery/','b_corp'],
@@ -345,20 +345,51 @@ addEventListener('resize',size);size();
 const clock=new THREE.Clock(),v=new THREE.Vector3();
 r.setAnimationLoop(()=>{
   const dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime,now=performance.now()/1000;
-  tilt[0]+=(ptr.x*.18-tilt[0])*.06;tilt[1]+=(-ptr.y*.12-tilt[1])*.06;group.rotation.set(tilt[1],tilt[0],0);
-  ray.setFromCamera(ptr,cam);const hit=shat?[]:ray.intersectObjects(meshes,false);hover=hit.length?hit[0].object:null;
-  v.set(ptr.x,ptr.y,.5).unproject(cam).sub(cam.position).normalize();glow.position.copy(cam.position).addScaledVector(v,cam.position.z-1.6);
-  for(const m of meshes){const u=m.userData,d=reduce?0:1;
-    u.hv+=((m===hover?1:0)-u.hv)*.12;
-    if(now-t0>u.delay)u.p=Math.min(1,Math.max(0,u.p+(shat?1:-1)*dt/1.4));
-    const e=u.p*u.p,dr=Math.sin(t*u.sp+u.ph)*.12*d;
-    m.position.set(u.hx+u.dir.x*e*18,u.hy+u.dir.y*e*18,dr+u.hv*LIFT+u.dir.z*e*14);
-    m.rotation.set(u.hv*.45+u.spin.x*e*7+Math.sin(t*u.sp+u.ph)*.03*d,u.spin.y*e*7,u.spin.z*e*7);
+  tilt[0]+=(ptr.x*.18-tilt[0])*.06;tilt[1]+=(-ptr.y*.12-tilt[1])*.06;
+  group.rotation.set(tilt[1],tilt[0],0);
+  glow.position.set(ptr.x*5,ptr.y*3,2.5);
+  
+  if(!reduce&&!shat){
+    ray.setFromCamera(ptr,cam);
+    const hits=ray.intersectObjects(meshes);
+    hover=hits.length?hits[0].object:null;
   }
+  
+  meshes.forEach(m=>{
+    const d=m.userData;
+    let targetZ=0,targetEm=0;
+    
+    if(shat){
+      const elapsed=Math.max(0,now-t0-d.delay);
+      if(elapsed<0.75){
+        d.p=Math.min(1,d.p+dt*3.5);
+      }else{
+        d.p=Math.max(0,d.p-dt*2.2);
+      }
+      const dist=Math.sin(d.p*Math.PI)*4;
+      v.copy(d.dir).multiplyScalar(dist);
+      m.position.set(d.hx+v.x,d.hy+v.y,v.z);
+      m.rotation.x+=d.spin.x*dt*4*d.p;
+      m.rotation.y+=d.spin.y*dt*4*d.p;
+      m.material.emissiveIntensity=d.p*0.4;
+      return;
+    }
+    
+    m.rotation.x*=0.9;m.rotation.y*=0.9;
+    d.hv+=(m===hover?1:0-d.hv)*0.12;
+    targetZ=d.hv*LIFT;
+    targetEm=d.hv*0.35;
+    
+    const floatZ=reduce?0:Math.sin(t*d.sp+d.ph)*0.08;
+    m.position.x+=(d.hx-m.position.x)*0.1;
+    m.position.y+=(d.hy-m.position.y)*0.1;
+    m.position.z+=(targetZ+floatZ-m.position.z)*0.1;
+    m.material.emissiveIntensity+=(targetEm-m.material.emissiveIntensity)*0.1;
+  });
+  
   r.render(scene,cam);
 });
-}catch(e){console.error(e);}
+}catch(e){console.error(e)}
 </script>
-
 </body>
 </html>
